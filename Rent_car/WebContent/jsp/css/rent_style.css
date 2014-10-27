@@ -1,0 +1,58 @@
+body {
+	color: white;
+	background-color: #B9D7D9;
+	/*box-shadow: 10px 10px 0px 0px #000000;*/
+}
+
+.header {
+	background-color: #668284;
+	border-radius: 20px;
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.keeper {
+	background-color: #493736;
+	border-radius: 20px;
+	padding: 3%;
+	width: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.client-info {
+	height: 350px;
+	color: white;
+	background: #7B3B3B;
+	border-radius: 20px;
+	padding: 1%;
+	display: inline-block;
+	float: right;
+}
+
+.car-info {
+	height: 350px;
+	color: white;
+	background: #7B3B3B;
+	border-radius: 20px;
+	padding: 1%;
+	display: inline-block;
+}
+
+.button {
+	margin-top: 30%;
+	color: white;
+	background-color: rgba(0,0,0,0.14);
+	border: none;
+	border-radius: 20px;
+	padding: 6px;
+}
+
+.textbox {
+	color: white;
+	background-color: rgba(0,0,0,0.14);
+	border: none;
+	border-radius: 20px;
+	padding: 6px;
+}

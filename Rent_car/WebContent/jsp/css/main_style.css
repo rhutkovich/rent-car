@@ -1,0 +1,65 @@
+body {
+	background-color: #6AC3E1;
+}
+
+body .content {
+	float: left;
+}
+
+body .welcome_box,.options {
+	float: right;
+}
+.content {
+	background-color: #545355;
+	border-radius: 20px;
+	color: white;
+	padding: 1%;
+	width: 70%;
+}
+.item {
+	text-align: left;
+	color: white;
+	background-color: sienna;
+	border-radius: 20px;
+	padding: 1%;
+	display: inline-block;
+	width: 90%;
+}
+.item img {
+	margin-top: 13px;
+	float: right;
+	border-radius: 20px;
+}
+
+.item form {
+	float: left;
+}
+.button {
+	color: white;
+	width: 100%;
+	background-color: rgba(0,0,0,0.14);
+	border: none;
+	border-radius: 20px;
+	padding: 3%;
+}
+.button:hover {
+	background-color: rgba(0,0,0,0.40);
+}
+.welcome_box {
+	width: 25.4%;
+	color: white;
+	background-color: #5699B4;
+	border-radius: 20px;
+	padding: 1%;
+	
+	float: right;
+}
+.options {
+	width: 25.4%;
+	margin-top: 8px;
+	color: white;
+	background-color: #5699B4;
+	border-radius: 20px;
+	padding: 1%;
+}
+

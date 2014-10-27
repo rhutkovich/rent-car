@@ -1,0 +1,30 @@
+body {
+	background-color: #000000;
+}
+
+.keeper {
+	background-color: silver;
+	padding: 1%;
+	border-radius: 20px;
+	width: 500px;
+	margin: auto;
+}
+
+.header {
+	color: white;
+	background-color: #FF9977;
+	border-radius: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
+}
+
+.payform {
+	color: white;
+	background-color: sienna;
+	border-radius: 20px;
+	padding: 3%;
+	width: 470px;
+	margin-left: auto;
+	margin-right: auto;
+}

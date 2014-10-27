@@ -1,0 +1,82 @@
+html {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	background: #6AC3E1;
+}
+
+body {
+	margin: 0;
+	height: 80%;
+}
+
+#login {
+	color: white;
+	background-color: sienna;
+	width: 200px;
+	margin: auto;
+	margin-top: 5%;
+	border-radius: 20px;
+	padding: 2%;
+	animation-duration: 1s;
+	animation-name: slidein;
+}
+
+#car {
+	bottom: 0;
+	position: absolute;
+	width: 703px;
+	height: 308px;
+	background: url(../img/car.svg);
+}
+
+.textbox {
+	background-color: rgba(0,0,0,0.15);
+	color: white;
+	width: 96%;
+	border-style: none;
+	border-radius: 200px;
+	padding: 2%;
+	animation-duration: 1s;
+	animation-name: slidein;
+}
+
+.button {
+	background-color: rgba(0,0,0,0.15);
+	border-style: none;
+	color: silver;
+	padding: 3%;
+	border-radius: 100px;
+}
+
+input.button:hover {
+	animation-name: button_hover;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+input.button:not(:hover) {
+	animation-name: button_leave;
+	animation-duration: 1s;
+}
+
+@keyframes button_hover {
+	to {
+		background-color: rgba(0,0,0,0.44);
+	}
+}
+
+@keyframes button_leave {
+	from {
+		background-color: rgba(0,0,0,0.44);
+	}
+}
+
+@keyframes slidein {
+	from {
+		background-color: rgba(0,0,0,0.0);
+		color: rgba(0,0,0,0.0);
+		margin-top: 1%;
+	}
+}
