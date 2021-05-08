@@ -8,5 +8,5 @@ import com.hutkovich.rentcar.logic.exception.BusinessLogicException;
 import javax.servlet.http.HttpServletRequest;
 
 public interface ActionCommand {
-    public String execute(HttpServletRequest request) throws BusinessLogicException;
+    String execute(HttpServletRequest request) throws BusinessLogicException;
 }

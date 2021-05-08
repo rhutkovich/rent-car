@@ -13,19 +13,19 @@ public class UnrentCommand implements ActionCommand {
 
     @Override
     public String execute(HttpServletRequest request)
-	    throws BusinessLogicException {
-	String page = null;
-	try {
-	    UnrentLogic.unrentCar(Integer.parseInt(request.getParameter("carId")));
-	} catch (NumberFormatException e) {
-	    throw new BusinessLogicException("Wrong car ID!",e);
-	} catch (UnrentLogicException e) {
-	    throw new BusinessLogicException("Impossible unrent car",e);
-	}
-	
-	request.setAttribute(PARAM_NAME_RENTED_CARS, LoginLogic.getRentedCars());
-	page = ConfigurationManager.getProperty("path.page.admin");
-	return page;
+            throws BusinessLogicException {
+        String page = null;
+        try {
+            UnrentLogic.unrentCar(Integer.parseInt(request.getParameter("carId")));
+        } catch (NumberFormatException e) {
+            throw new BusinessLogicException("Wrong car ID!", e);
+        } catch (UnrentLogicException e) {
+            throw new BusinessLogicException("Impossible unrent car", e);
+        }
+
+        request.setAttribute(PARAM_NAME_RENTED_CARS, LoginLogic.getRentedCars());
+        page = ConfigurationManager.getProperty("path.page.admin");
+        return page;
     }
 
 }
