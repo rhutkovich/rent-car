@@ -17,11 +17,11 @@ public class DBResourceManager {
             case "db.driver":
                 return "com.mysql.jdbc.Driver"; //"oracle.jdbc.driver.OracleDriver";
             case "db.url":
-                return "jdbc:mysql://127.0.0.1/rent_car?useUnicode=true&characterEncoding=utf-8"; //look to conspect!!
+                return "jdbc:mysql://127.0.0.1:3306/rent_car?useUnicode=true&characterEncoding=utf-8"; //look to conspect!!
             case "db.user":
-                return "user";
+                return "root";
             case "db.password":
-                return "pass";
+                return "passw0rd";
             case "db.poolsize":
                 return "5";
             default:
