@@ -77,7 +77,7 @@ public class AdministratorDAO extends AbstractDAO<Administrator> {
 
         try {
             st = connection.createStatement();
-            result = (st.executeUpdate(DELETE_BY_ID + id) > 0) ? true : false;
+            result = st.executeUpdate(DELETE_BY_ID + id) > 0;
         } catch (SQLException e) {
             throw new DAOException("Can't delete administrator by ID", e);
         } finally {
@@ -90,7 +90,7 @@ public class AdministratorDAO extends AbstractDAO<Administrator> {
     @Override
     public boolean delete(Administrator entity) throws DAOException {
         Administrator admin = findEntityById(entity.getId());
-        return (admin.equals(entity)) ? delete(entity.getId()) : false;
+        return admin.equals(entity) && delete(entity.getId());
     }
 
     @Override
@@ -100,7 +100,7 @@ public class AdministratorDAO extends AbstractDAO<Administrator> {
 
         try {
             st = connection.createStatement();
-            result = (st.executeUpdate(makeCreateQuery(entity)) > 0) ? true : false;
+            result = st.executeUpdate(makeCreateQuery(entity)) > 0;
         } catch (SQLException e) {
             throw new DAOException("Can't create administrator.", e);
         } finally {

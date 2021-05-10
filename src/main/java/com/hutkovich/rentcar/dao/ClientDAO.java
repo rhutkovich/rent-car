@@ -84,7 +84,7 @@ public class ClientDAO extends AbstractDAO<Client> {
 
         try {
             statement = connection.createStatement();
-            result = (statement.executeUpdate(DELETE_BY_ID + id) > 0) ? true : false;
+            result = statement.executeUpdate(DELETE_BY_ID + id) > 0;
         } catch (SQLException e) {
             throw new DAOException("Can't delete client.", e);
         } finally {
@@ -97,7 +97,7 @@ public class ClientDAO extends AbstractDAO<Client> {
     @Override
     public boolean delete(Client entity) throws DAOException {
         Client client = findEntityById(entity.getId());
-        return (client.equals(entity)) ? delete(entity.getId()) : false;
+        return client.equals(entity) && delete(entity.getId());
     }
 
     @Override
@@ -107,7 +107,7 @@ public class ClientDAO extends AbstractDAO<Client> {
 
         try {
             statement = connection.createStatement();
-            result = (statement.executeUpdate(makeCreateQuery(entity)) > 0) ? true : false;
+            result = statement.executeUpdate(makeCreateQuery(entity)) > 0;
         } catch (SQLException e) {
             throw new DAOException("Can't create client", e);
         } finally {

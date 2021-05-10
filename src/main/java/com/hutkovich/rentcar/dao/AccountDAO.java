@@ -13,8 +13,7 @@ public class AccountDAO extends AbstractDAO<Account> {
     private static final String SELECT_ALL = "SELECT * FROM Accounts";
     private static final String SELECT_BY_ID = "SELECT * FROM Accounts WHERE ID_account = ";
     private static final String DELETE_BY_ID = "DELETE FROM Accounts WHERE ID_account = ";
-    private static final String INSERT_ENTITY = "INSERT INTO Accounts "
-            + "(Login,Password) VALUES ";
+    private static final String INSERT_ENTITY = "INSERT INTO Accounts (Login,Password) VALUES ";
     private static final String UPDATE_ENTITY = "UPDATE Accounts SET ";
 
     public AccountDAO(Connection connection) {
@@ -78,7 +77,7 @@ public class AccountDAO extends AbstractDAO<Account> {
 
         try {
             query = connection.createStatement();
-            result = (query.executeUpdate(DELETE_BY_ID + id) > 0) ? true : false;
+            result = query.executeUpdate(DELETE_BY_ID + id) > 0;
         } catch (SQLException e) {
             throw new DAOException("Unable delete account by ID", e);
         } finally {
@@ -91,7 +90,7 @@ public class AccountDAO extends AbstractDAO<Account> {
     @Override
     public boolean delete(Account entity) throws DAOException {
         Account account = findEntityById(entity.getId());
-        return (account.equals(entity)) ? delete(entity.getId()) : false;
+        return account.equals(entity) && delete(entity.getId());
     }
 
     @Override
@@ -102,7 +101,7 @@ public class AccountDAO extends AbstractDAO<Account> {
         try {
 
             statement = connection.createStatement();
-            result = (statement.executeUpdate(makeCreateQuery(entity)) > 0) ? true : false;
+            result = statement.executeUpdate(makeCreateQuery(entity)) > 0;
 
         } catch (SQLException e) {
             throw new DAOException("Cant create account", e);

@@ -94,7 +94,7 @@ public class CarDAO extends AbstractDAO<Car> {
 
         try {
             query = connection.createStatement();
-            result = (query.executeUpdate(DELETE_BY_ID + id) > 0) ? true : false;
+            result = query.executeUpdate(DELETE_BY_ID + id) > 0;
         } catch (SQLException e) {
             throw new DAOException("Unable delete car by ID", e);
         } finally {
@@ -107,7 +107,7 @@ public class CarDAO extends AbstractDAO<Car> {
     @Override
     public boolean delete(Car entity) throws DAOException {
         Car carFromDB = findEntityById(entity.getId());
-        return (carFromDB.equals(entity)) ? delete(entity.getId()) : false;
+        return carFromDB.equals(entity) && delete(entity.getId());
     }
 
     @Override
@@ -117,7 +117,7 @@ public class CarDAO extends AbstractDAO<Car> {
 
         try {
             st = connection.createStatement();
-            result = (st.executeUpdate(makeCreateQuery(entity)) > 0) ? true : false;
+            result = st.executeUpdate(makeCreateQuery(entity)) > 0;
         } catch (SQLException e) {
             throw new DAOException("Unable to create add new car to DB.", e);
         } finally {

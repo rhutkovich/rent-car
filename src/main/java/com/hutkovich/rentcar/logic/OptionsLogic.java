@@ -37,7 +37,7 @@ public class OptionsLogic {
     // Если одна из опций равна any, то всегда true,
     // т.к. пользователю не важно значение этой опции
     private static boolean isSuitableOption(String value1, String value2) {
-        return (PARAM_NAME_ANY.equals(value2)) ? true : value1.equals(value2);
+        return PARAM_NAME_ANY.equals(value2) || value1.equals(value2);
     }
 
     private static boolean isBelongsInterval(String from, String to, String value) {
@@ -45,7 +45,7 @@ public class OptionsLogic {
         float realTo = (PARAM_NAME_ANY.equals(to)) ? 99999 : Float.parseFloat(to);
         float realValue = Float.parseFloat(value);
 
-        return (realValue <= realTo && realValue >= realFrom) ? true : false;
+        return realValue <= realTo && realValue >= realFrom;
     }
 
     //OptionsTransfer - объект, хранящий в себе различные опции, доступные пользователю.

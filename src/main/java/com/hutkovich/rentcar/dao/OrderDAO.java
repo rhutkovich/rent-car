@@ -86,7 +86,7 @@ public class OrderDAO extends AbstractDAO<Order> {
 
         try {
             query = connection.createStatement();
-            result = (query.executeUpdate(DELETE_BY_ID + id) > 0) ? true : false;
+            result = query.executeUpdate(DELETE_BY_ID + id) > 0;
         } catch (SQLException e) {
             throw new DAOException("Unable delete order by ID", e);
         } finally {
@@ -99,7 +99,7 @@ public class OrderDAO extends AbstractDAO<Order> {
     @Override
     public boolean delete(Order entity) throws DAOException {
         Order orderFromDB = findEntityById(entity.getId());
-        return (orderFromDB.equals(entity)) ? delete(entity.getId()) : false;
+        return orderFromDB.equals(entity) && delete(entity.getId());
     }
 
     @Override
@@ -109,7 +109,7 @@ public class OrderDAO extends AbstractDAO<Order> {
 
         try {
             st = connection.createStatement();
-            result = (st.executeUpdate(makeCreateQuery(entity)) > 0) ? true : false;
+            result = st.executeUpdate(makeCreateQuery(entity)) > 0;
         } catch (SQLException e) {
             throw new DAOException("Unable to create add new order to DB.", e);
         } finally {
